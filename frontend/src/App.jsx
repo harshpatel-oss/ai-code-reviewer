@@ -14,8 +14,9 @@ function App() {
   useEffect(() => {
     prism.highlightAll();
   })
+  const url = "https://ai-code-reviewer-backend-s3hg.onrender.com";
   async function reviewCode(){
-    const response = await axios.post('http://localhost:3000/ai/get-review',{code})
+    const response = await axios.post(`${url}/ai/get-review`,{code})
     // backend returns { response: ... }
     setReview(response.data.response);
     console.log(response.data);
